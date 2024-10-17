@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva Sala de Ensayo - Meru Discos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="reserva-sala.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Meru Discos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Reserva de Sala de Ensayo</h2>
+        <div id="music-control">
+            <button id="toggle-music">
+                <i class="fas fa-music"></i>
+                <span class="music-text">Click aki</span>
+            </button>
+        </div>
+        <div class="container">
+            <div class="left-column">
+                <div id="calendario"></div>
+                <div id="horas-disponibles"></div>
+                <div class="leyenda">
+                    <span class="hora">Disponible</span>
+                    <span class="hora ocupada">Ocupada</span>
+                    <span class="hora seleccionada">Seleccionada</span>
+                </div>
+            </div>
+            <div class="right-column">
+                <div id="info-precios">
+                    <h3>Precios</h3>
+                    <p>1 hora: $8.000</p>
+                    <p>2 horas: $12.000 (¡Promoción!)</p>
+                </div>
+                <div id="resumen-reserva">
+                    <h3>Resumen de la Reserva</h3>
+                    <p>Horas seleccionadas: <span id="horas-seleccionadas"></span></p>
+                    <p>Costo total: <span id="costo-total"></span></p>
+                </div>
+                <form id="formulario-reserva">
+                    <input type="text" id="nombre-banda" placeholder="Nombre de la banda" required>
+                    <input type="number" id="num-integrantes" placeholder="Número de integrantes" required min="1">
+                    <div class="opciones-adicionales">
+                        <label>
+                            <input type="checkbox" id="arriendo-cables"> Arriendo de cables
+                            <span class="precio">$3.000</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="arriendo-platillos"> Arriendo de platillos
+                            <span class="precio">$10.000</span>
+                        </label>
+                    </div>
+                    <button type="submit" id="btn-reservar">Reservar</button>
+                </form>
+            </div>
+        </div>
+        <div id="reservas-actuales">
+            <h3>Reservas Actuales</h3>
+            <ul id="lista-reservas"></ul>
+        </div>
+    </main>
+
+    <div id="youtube-player"></div>
+
+    <div id="monsters-container">
+        <div class="monster monster1"></div>
+        <div class="monster monster2"></div>
+        <div class="monster monster3"></div>
+    </div>
+
+    <div id="floating-gif">
+        <iframe src="https://giphy.com/embed/1oC7ENXZ3GOHKS0lEA" width="150" height="150" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    </div>
+
+    <div id="confirmation-gif" class="hidden">
+        <iframe src="https://giphy.com/embed/xbwza7nZOFiqcDTaD4" width="200" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <p class="confirmation-text">Hora confirmada</p>
+    </div>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="reserva-sala.js"></script>
+</body>
+</html>

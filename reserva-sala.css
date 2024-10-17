@@ -1,0 +1,339 @@
+/* Estilos base */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#calendario, #info-precios, #resumen-reserva, #formulario-reserva, #reservas-actuales {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.calendario-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.dia, .hora {
+    text-align: center;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.dia:hover, .hora:hover {
+    background-color: #e0e0e0;
+}
+
+.dia.seleccionado, .hora.seleccionada {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.dia.pasado, .hora.ocupada {
+    background-color: #bdc3c7;
+    color: #7f8c8d;
+    cursor: not-allowed;
+}
+
+#horas-disponibles {
+    margin-top: 1rem;
+}
+
+.leyenda {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+    font-size: 0.8rem;
+}
+
+#btn-reservar {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#btn-reservar:hover {
+    background-color: #27ae60;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+#lista-reservas {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lista-reservas li {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.opciones-adicionales {
+    margin-bottom: 1rem;
+}
+
+.opciones-adicionales label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.opciones-adicionales .precio {
+    margin-left: auto;
+    font-weight: bold;
+    color: #3498db;
+}
+
+#music-control {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#toggle-music {
+    background-color: #ff4757;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#toggle-music:hover {
+    background-color: #ff6b81;
+    transform: scale(1.05);
+}
+
+#toggle-music i {
+    margin-right: 5px;
+}
+
+.music-text {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#toggle-music.muted {
+    background-color: #57606f;
+}
+
+#toggle-music.muted:hover {
+    background-color: #747d8c;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#toggle-music:not(.muted) {
+    animation: pulse 1.5s infinite;
+}
+
+.monster {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1000;
+}
+
+@keyframes moveMonster {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+}
+
+.monster1 { top: 20%; animation: moveMonster 15s linear infinite; }
+.monster2 { top: 50%; animation: moveMonster 20s linear infinite; }
+.monster3 { top: 80%; animation: moveMonster 25s linear infinite; }
+
+#floating-gif, #confirmation-gif {
+    position: fixed;
+    z-index: 1000;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+
+#floating-gif iframe, #confirmation-gif iframe {
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#confirmation-gif {
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+}
+
+#confirmation-gif.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.confirmation-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2ecc71;
+    margin-top: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+#confirmation-gif {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        flex-direction: row;
+    }
+
+    .left-column, .right-column {
+        flex: 1;
+    }
+
+    .dia, .hora {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .leyenda {
+        font-size: 0.9rem;
+    }
+
+    #lista-reservas li {
+        font-size: 1rem;
+    }
+
+    .opciones-adicionales label {
+        font-size: 1rem;
+    }
+
+    #toggle-music {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .monster {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        padding: 2rem;
+    }
+
+    .container {
+        gap: 2rem;
+    }
+
+    #calendario, #info-precios, #resumen-reserva, #formulario-reserva, #reservas-actuales {
+        padding: 1.5rem;
+    }
+}
